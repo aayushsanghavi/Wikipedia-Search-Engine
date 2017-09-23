@@ -1,6 +1,7 @@
-from include import *
+import operator
 from math import *
 from heapq import *
+from include import *
 from collections import *
 import xml.etree.cElementTree as et
 
@@ -274,14 +275,24 @@ for f in field_chars :
 				word_position[word] = {}
 			word_position[word][f] = output_files[outfile_index].tell()
 			postings = posting_list.split(",")
-			score = ""
+			documents = {}
 			idf = log10(page_count / len(postings))
 			for posting in postings :
 				d = posting[posting.find("d") + 1 : posting.find(":")]
 				freq = posting[posting.find(":") + 1 :]
 				freq = int(freq)
 				tf = 1 + log10(freq)
-				score = score + d + ":" + str(round(idf * tf, 2)) + ","
+				documents[str(d)] = round(idf * tf, 2)
+
+			documents = sorted(documents.items(), key = operator.itemgetter(1), reverse = True)
+			number_of_results = 0
+			score = ""
+			for document in documents :
+				if number_of_results == 10 :
+					break
+				score = score + document[0] + ":" + str(document[1]) + ","
+				number_of_results += 1
+
 			score = score[:-1] + "\n"
 			output_files[outfile_index].write(score)
 
