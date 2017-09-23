@@ -1,2 +1,2 @@
 # Wikipedia-Search-Engine
-![Read more text](https://aayushsanghavi.github.io/projects/WikipediaSearchEngine.html)
+Read about the project, its features and capabilities at https://aayushsanghavi.github.io/projects/WikipediaSearchEngine.html
