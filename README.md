@@ -1,2 +1,2 @@
 # Wikipedia-Search-Engine
-![Alt text](https://aayushsanghavi.github.io/projects/WikipediaSearchEngine.html "Read more here")
+![Read more text](https://aayushsanghavi.github.io/projects/WikipediaSearchEngine.html)
